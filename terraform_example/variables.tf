@@ -28,3 +28,12 @@ variable "tenant_network" {
     default  = "provider"
 }
 
+variable "image" {
+  default = "Ubuntu 16.04 LTS (Xenial Xerus)"
+}
+
+variable "flavor" {
+  default = "m1.small"
+}
+
+
