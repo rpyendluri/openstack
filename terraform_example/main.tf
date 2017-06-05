@@ -1,9 +1,9 @@
 variable "count" {
-  default = 1
+  default = 0
 }
 resource "openstack_compute_instance_v2" "web" {
   count = "${var.count}"
-  name = "${format("web-%02d", count.index+1)}"
+  name = "${format("petclinic-int-web-%02d", count.index+1)}"
   image_name      = "${var.image}"
   flavor_name     = "${var.flavor}"
   availability_zone = "nova"
