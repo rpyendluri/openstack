@@ -12,7 +12,7 @@ resource "openstack_compute_instance_v2" "web" {
   network {
     name = "${var.tenant_network}"
   }
-  user_data = "${file("bootstrap.sh")}"
+  user_data = "${file("bootstrap-ubuntu.sh")}"
 }
 output "ip" {
   value = "${openstack_compute_instance_v2.web.access_ip_v4}"
