@@ -14,4 +14,7 @@ resource "openstack_compute_instance_v2" "web" {
   }
   user_data = "${file("bootstrap.sh")}"
 }
+output "ip" {
+  value = "${openstack_compute_instance_v2.web.access_ip_v4}"
+}
 
