@@ -31,7 +31,7 @@
         auth:
          auth_url: http://192.168.0.140:35357/v3
          username: admin
-         password: "{{ admin_password }}""
+         password: "{{ admin_password }}"
          project_name: trainings
          domain_name: default
         user: "{{ item.key }}"
@@ -54,7 +54,7 @@
           host: smtp.gmail.com
           port: 465
           username: pbuditi@palo-it.com
-          password: {{ mail_password }}
+          password: "{{ mail_password }}"
           to: "{{ item.value.email }}"
           subject: OpenStack Notificaton Dev Account created - {{ item.key }}
           body: 'Hi {{ item.value.name }},
