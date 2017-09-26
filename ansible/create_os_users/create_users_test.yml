@@ -1,0 +1,40 @@
+---
+# create openstack users
+- name: create openstack users in bulk
+  hosts: localhost
+  connection: local
+  sudo: false
+  gather_facts: false
+
+  tasks:
+    - include_vars: users5.yml
+
+    - name: Create users
+      os_user:
+         state: present
+         auth:
+           auth_url: http://192.168.0.140:35357/v3
+           username: admin
+           password: "{{ admin_password }}"
+           project_name: trainings
+           domain_name: default
+         name: "{{ item.key }}"
+         password: changeme
+         update_password: on_create
+         email: "{{ item.value.email }}"
+         domain: default
+         default_project: trainings
+      with_dict: "{{ users }}"
+
+    - name: add role user
+      os_user_role:
+        auth:
+         auth_url: http://192.168.0.140:35357/v3
+         username: admin
+         password: "{{ admin_password }}"
+         project_name: trainings
+         domain_name: default
+        user: "{{ item.key }}"
+        role: user
+        project: trainings
+      with_dict: "{{ users }}"
