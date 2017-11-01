@@ -1,0 +1,14 @@
+---
+users:
+  rbillard:
+    name: Raoul Billard
+    email: rbillard@palo-it.com
+  gfouquet:
+    name: Grégory Fouquet
+    email: gfouquet@palo-it.com
+  ccosnefroy:
+    name: Christophe Cosnefroy
+    email: ccosnefroy@palo-it.com
+  rpyendluri:
+    name: Reddi Prasad Yendluri
+    email: rpyendluri@palo-it.com
